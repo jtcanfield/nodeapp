@@ -11,7 +11,8 @@ app.get("/", function(req, res){
 })
 
 app.get("/:dynamic", function (req, res){
-  console.log(res);
+  // console.log(req);
+  res.send(`You typed ${req.url}`)
 })
 
 app.listen(port, function(){
