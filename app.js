@@ -5,15 +5,14 @@ const path = require('path');
 
 app.use('/nodeapp', express.static(__dirname + '/nodeapp'));
 
-// app.get('/', function(req, res){
-//   res.send('hello world');
-// });
 
 app.get("/", function(req, res){
   res.sendFile(path.join(__dirname + '/index.html'));
-  // app.use('/index.html', express.static('public'))
 })
 
+app.get("/:dynamic", function (req, res){
+  console.log(res);
+})
 
 app.listen(port, function(){
   console.log("Server active on http://localhost:3000/");
