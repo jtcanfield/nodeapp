@@ -2,15 +2,13 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
-// const mustache = require('mustache');
 const mustacheExpress = require('mustache-express');
 
 // Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
 app.use('/nodeapp', express.static(__dirname + '/nodeapp'));
 app.set('view engine', 'mustache');
-app.set('views', './views')
-// app.set('views', __dirname + '/views');
+app.set('views', './views');
 
 app.get('/', function (req, res) {
   res.render('index', { userName: 'Sam' })
