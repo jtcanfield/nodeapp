@@ -10,10 +10,11 @@ app.use('/nodeapp', express.static(__dirname + '/nodeapp'));
 app.set('view engine', 'mustache');
 app.set('views', './views');
 
+
+//on homepage, do this (it cascades, so whatever comes last is on top)
 app.get('/', function (req, res) {
   res.render('index', { userName: 'Sam' })
 })
-
 app.get("/", function(req, res){
   res.sendFile(path.join(__dirname + '/index.mustache'));
 });
